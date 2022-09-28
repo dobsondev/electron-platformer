@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron Platformer | Game</title>
+
+    <link rel="stylesheet" href="../css/foundation.css">
+    <link rel="stylesheet" href="../css/app.css">
+  </head>
+  <body>
+
+    <section id="start-screen-view">
+      <div id="top-bar-start-screen" class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">Electron Platformer | Game</li>
+          </ul>
+        </div>
+      </div><!-- .top-bar -->
+
+      <div id="load-level" class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-12 medium-8 medium-offset-2 large-6 large-offset-3">
+            <p>
+              <div class="callout">
+                Please select a level from your local file system to load into the game to play. Levels are usually .txt files.<br />
+                <br />
+                <a id="select-level-button" class="button blue">Load Level</a><br />
+                <input id="selected-level" type="text" readonly />
+              </div>
+            </p>
+            <p class="text-center">
+              <a id="play-level-button" class="button blue">Play Level</a><br />
+            </p>
+          </div><!-- .cell small-12 medium-8 medium-offset-2 large-6 large-offset-4 -->
+        </div><!-- .grid-x grid-padding-x -->
+      </div><!-- .grid-container -->
+    </section><!-- #start-screen-view -->
+
+    <section id="game-screen-view">
+      <div id="top-bar-game-screen" class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">Electron Platformer | Game</li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li id="menu-level-name"></li>
+          </ul>
+        </div>
+      </div><!-- .top-bar -->
+
+      <canvas id="game" width="1024" height="512"></canvas>
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-2 small-offset-1">
+            <!-- <audio id="background-music" loop="true" controls="volume">
+              <source src="../game/res/sounds/background_music.wav" />
+            </audio> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="../electron-renderer.js"></script>
+    <!-- Game Scripts Start Here... their order is important -->
+    <script type="text/javascript" src="../game/game.js"></script>
+    <script type="text/javascript" src="../game/controller.js"></script>
+    <script type="text/javascript" src="../game/update.js"></script>
+    <script type="text/javascript" src="../game/render.js"></script>
+    <script type="text/javascript" src="../game/run.js"></script>
+    <script type="text/javascript" src="../game/start.js"></script>
+
+  </body>
+</html>

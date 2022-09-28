@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron Platformer | Level Editor</title>
+
+    <link rel="stylesheet" href="../css/foundation.css">
+    <link rel="stylesheet" href="../css/app.css">
+  </head>
+  <body>
+
+    <section id="start-screen-view">
+      <div id="top-bar-start-screen" class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">Electron Platformer | Level Editor</li>
+          </ul>
+        </div>
+      </div><!-- .top-bar -->
+
+      <div id="edit-create-level" class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-12 medium-8 medium-offset-2 large-6 large-offset-3">
+            <p>
+              <div class="callout">
+                Please click the button below to edit an exisiting level. You will be able to choose the level file from your file system. Once the level is loaded you may edit it and save it as a new level or overwrite your old level with the new one.<br />
+                <br />
+                <input id="selected-level-text" type="text" readonly />
+                <a id="select-level-to-edit-button" class="button blue">Load Level</a>
+                <a id="edit-selected-level-button" class="button blue">Edit Level</a>
+                <br />
+              </div>
+            </p>
+            <p>
+              <div class="callout">
+                Please click the button below to create a new level. This will give a blank cavas to work with, which you can then fill from scratch.<br />
+                <br />
+                <a id="create-new-level-button" class="button blue">Create New Level</a><br />
+              </div>
+            </p>
+          </div><!-- .cell small-12 medium-8 medium-offset-2 large-6 large-offset-4 -->
+        </div><!-- .grid-x grid-padding-x -->
+      </div><!-- .grid-container -->
+    </section><!-- #start-screen-view -->
+
+    <section id="editor-screen-view">
+      <div id="top-bar-editor-screen" class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">Electron Platformer | Level Editor</li>
+            <li><a id="regular-layout-view-link">Regular Layout</a></li>
+            <li><a id="phased-layout-view-link">Phased Layout</a></li>
+            <li><a id="main-menu-link">Back to Main Menu</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><a id="save-level-button" class="button blue">Save Level</a></li>
+          </ul>
+        </div>
+      </div><!-- .top-bar -->
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-12">
+            <p class="text-center">
+              Mouse: <span id="mouse-coords"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="editor" width="1024" height="512"></canvas>
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-12 medium-6 large-2 large-offset-1">
+            <h3>Player</h3>
+            <p>
+              <img class="tile-img" id="player-img" src="../editor/res/player/player_idle_0.png" /> [P key]
+            </p>
+          </div>
+          <div class="cell small-12 medium-6 large-2">
+            <h3>Goal</h3>
+            <p>
+              <img class="tile-img" id="goal-img" src="../editor/res/goal/goal.png" /> [G key]
+            </p>
+          </div>
+          <div class="cell small-12 medium-6 large-3">
+            <h3>Tiles</h3>
+            <p>
+              <img class="tile-img" id="regular-0-img" src="../editor/res/tiles/regular_tile_0.png" /> [1 key]<br />
+              <img class="tile-img" id="regular-1-img" src="../editor/res/tiles/regular_tile_1.png" /> [2 key]
+            </p>
+          </div>
+          <div class="cell small-12 medium-6 large-3">
+            <h3>Phased Tiles</h3>
+            <p>
+              <img class="tile-img" id="phased-0-img" src="../editor/res/tiles/phased_tile_0.png" /> [3 key]<br />
+              <img class="tile-img" id="phased-1-img" src="../editor/res/tiles/phased_tile_1.png" /> [4 key]
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-12 medium-6 large-8 large-offset-2">
+            <p>
+              <label>Level Name:
+                <input id="level-name-text" type="text" value="New Level" />
+              </label>
+              <label>Level Author:
+                <input id="level-author-text" type="text" value="Anonymous" />
+              </label>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section><!-- .editor-screen-view -->
+
+
+    <script type="text/javascript" src="../electron-renderer.js"></script>
+    <!-- Editor Scripts Start Here... their order is important -->
+    <script type="text/javascript" src="../editor/editor.js"></script>
+    <script type="text/javascript" src="../editor/controller.js"></script>
+    <script type="text/javascript" src="../editor/mouse.js"></script>
+    <script type="text/javascript" src="../editor/update.js"></script>
+    <script type="text/javascript" src="../editor/render.js"></script>
+    <script type="text/javascript" src="../editor/run.js"></script>
+    <script type="text/javascript" src="../editor/start.js"></script>
+
+  </body>
+</html>

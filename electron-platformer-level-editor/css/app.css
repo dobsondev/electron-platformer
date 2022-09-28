@@ -1,0 +1,29 @@
+a.button {
+  width: 150px;
+}
+
+div#edit-create-level {
+  margin-top: 1em;
+}
+
+a#edit-selected-level-button {
+  display: none;
+}
+
+section#editor-screen-view {
+  display: none;
+}
+
+img.tile-img {
+  padding: 3px;
+}
+
+canvas#editor {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
